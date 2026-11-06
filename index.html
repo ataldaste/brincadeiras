@@ -3,61 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Brincadeiras</title>
+<title>BRINCADEIRAS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
-:root{--bg:#07040d;--text:#f6f1ff;--muted:#a99cc4;--orange:#ff6a00;--pink:#ff2e93;--violet:#7a2cff;--blue:#2d5bff;--glass:rgba(20,10,36,.55);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%}
-body{background:var(--bg);color:var(--text);font-family:"Space Grotesk",system-ui,sans-serif;position:relative;overflow-x:hidden}
-/* fundo: manchas de neon + grão */
-.bg{position:fixed;inset:0;z-index:-2;overflow:hidden}
-.bg i{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(90px);opacity:.55;animation:drift 22s ease-in-out infinite alternate}
-.bg i:nth-child(1){background:var(--violet);left:-15vmax;top:-18vmax}
-.bg i:nth-child(2){background:var(--orange);right:-20vmax;bottom:-22vmax;opacity:.42;animation-delay:-8s}
-.bg i:nth-child(3){background:var(--pink);right:10vmax;top:-25vmax;opacity:.3;animation-delay:-14s}
-.bg i:nth-child(4){background:var(--blue);left:5vmax;bottom:-28vmax;opacity:.35;animation-delay:-4s}
-@keyframes drift{to{transform:translate(6vmax,4vmax) scale(1.12)}}
-.grain{position:fixed;inset:0;z-index:-1;opacity:.18;mix-blend-mode:overlay;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-.wrap{max-width:1200px;margin:0 auto;padding:20px;min-height:100vh;display:flex;flex-direction:column;gap:18px}
-header{text-align:center}
-h1{margin:0;font-family:"Silkscreen",monospace;font-weight:700;font-size:clamp(22px,4.2vw,44px);letter-spacing:.02em;line-height:1.1;text-transform:uppercase}
-h1 .b{color:var(--orange);text-shadow:0 0 18px #ff6a0099,3px 3px 0 #3a0f00}
-h1 .p{color:var(--pink);margin:0 .3em}
-h1 .a{color:#fff;text-shadow:-2px 0 var(--blue),2px 0 var(--orange)}
-.sub{margin:8px 0 0;color:var(--muted);font-size:14px;letter-spacing:.2em;text-transform:uppercase}
-main{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:center}
-.show{position:relative;justify-self:center;height:min(68vh,640px);aspect-ratio:4/5;max-width:100%;border-radius:18px;overflow:hidden;border:1px solid #ffffff22;box-shadow:0 0 0 1px #000,0 20px 70px -10px #ff2e9355,0 0 120px -20px #7a2cff88;background:#000}
-.show img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s}
-.show img.on{opacity:1}
-.dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px}
-.dots i{width:8px;height:8px;border-radius:50%;background:#fff5}
-.dots i.on{background:var(--orange)}
-.artists{display:flex;flex-direction:column;gap:16px}
-.artist{background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #ffffff1c;border-radius:18px;padding:16px}
-.artist h2{margin:0 0 12px;font-family:"Silkscreen",monospace;font-size:22px;text-transform:uppercase;letter-spacing:.04em}
-.artist:nth-child(1) h2{color:var(--orange)}
-.artist:nth-child(2) h2{color:#fff;text-shadow:-2px 0 var(--blue),2px 0 var(--pink)}
-.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.tile{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px;border-radius:14px;background:#ffffff0d;border:1px solid #ffffff14;color:var(--text);text-decoration:none;transition:transform .2s,border-color .2s,background .2s}
-.tile:hover{transform:translateY(-3px);border-color:var(--pink);background:#ffffff16}
-.qr{background:#fff;padding:7px;border-radius:10px;line-height:0}
-.qr img,.qr canvas{width:112px!important;height:112px!important}
-.tile b{font-family:"Silkscreen",monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
-.tile span{color:var(--muted);font-size:12px;word-break:break-all;text-align:center}
-@media(max-width:860px){main{grid-template-columns:1fr}.show{height:auto;width:min(86vw,420px)}}
-@media(max-width:420px){.tiles{gap:8px}.qr img,.qr canvas{width:96px!important;height:96px!important}}
-@media(prefers-reduced-motion:reduce){.bg i{animation:none}}
+:root{--bg:#08020e;--ink:#fff4e8;--muted:#c6b4d4;--orange:#ff6b00;--hot:#ff2b91;--purple:#8d21ff;--blue:#22d9ff;--panel:rgba(13,5,25,.82);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;scroll-behavior:smooth}body{background:var(--bg);color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif;position:relative;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:-3;overflow:hidden;background:radial-gradient(ellipse at 18% 15%,#6614a9 0,transparent 34%),radial-gradient(ellipse at 90% 70%,#7b260e 0,transparent 34%),radial-gradient(ellipse at 65% 0%,#26104b 0,transparent 38%),#08020e}
+.bg i{position:absolute;width:54vmax;height:54vmax;border-radius:50%;filter:blur(100px);opacity:.4;animation:drift 20s ease-in-out infinite alternate}.bg i:nth-child(1){background:var(--purple);left:-20vmax;top:-22vmax}.bg i:nth-child(2){background:var(--orange);right:-20vmax;bottom:-24vmax;animation-delay:-7s}.bg i:nth-child(3){background:var(--hot);right:5vmax;top:-30vmax;opacity:.25;animation-delay:-12s}.bg i:nth-child(4){background:var(--blue);left:0;bottom:-30vmax;opacity:.22;animation-delay:-3s}
+@keyframes drift{to{transform:translate(5vmax,4vmax) scale(1.12)}}
+.grain{position:fixed;inset:0;z-index:5;opacity:.14;mix-blend-mode:overlay;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+body:after{content:"";position:fixed;inset:0;z-index:4;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.14) 4px),linear-gradient(120deg,transparent 30%,rgba(255,106,0,.07) 48%,transparent 62%);mix-blend-mode:screen}
+.wrap{max-width:1280px;margin:0 auto;padding:clamp(16px,3vw,34px);min-height:100vh;display:flex;flex-direction:column;gap:clamp(22px,4vh,42px)}
+header{text-align:left;position:relative;padding:clamp(16px,3vw,32px) clamp(4px,1vw,14px) 22px;border-bottom:1px solid #ff6a004d}
+header:after{content:"/// FREQUÊNCIA ALTERNATIVA";display:block;margin-top:13px;color:var(--blue);font:12px "Silkscreen",monospace;letter-spacing:.18em;text-shadow:0 0 12px #22d9ff66}
+h1{margin:0;font-family:"Silkscreen",monospace;font-size:clamp(32px,7vw,78px);line-height:1.1;letter-spacing:-.045em;text-transform:uppercase;color:var(--orange);text-shadow:3px 3px 0 #3b1000,6px 6px 0 #7b1d7b,-2px 0 var(--hot),0 0 24px #ff6a0080;filter:drop-shadow(0 0 12px #ff2e9366)}
+h1 .b{color:var(--orange)}h1 .p,h1 .a{display:none}.sub{margin:12px 0 0;color:var(--muted);font-size:clamp(12px,1.6vw,15px);letter-spacing:.2em;text-transform:uppercase}
+main{flex:1;display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,1fr);gap:clamp(20px,3vw,38px);align-items:stretch}
+.show{position:relative;justify-self:stretch;min-height:480px;height:min(72vh,760px);aspect-ratio:4/5;max-width:100%;border-radius:3px;overflow:hidden;border:1px solid #ff6a0088;box-shadow:0 0 0 1px #000,0 0 30px #ff2e9333,0 20px 80px -15px #ff6a0055,0 0 110px -20px #7a2cff88;background:#000;transform:rotate(-.4deg)}
+.show:before{content:"LIVE / VISUAL FEED";position:absolute;z-index:2;top:15px;left:15px;padding:8px 10px;background:#10051bd9;border-left:3px solid var(--orange);font:10px "Silkscreen",monospace;letter-spacing:.12em;color:#fff;box-shadow:0 0 14px #ff6a0033}.show:after{content:"BRINCADEIRAS • SOM • CAOS";position:absolute;z-index:2;bottom:15px;left:15px;right:15px;font:clamp(10px,1.3vw,13px) "Silkscreen",monospace;letter-spacing:.12em;color:#fff;text-shadow:0 0 10px var(--hot),2px 2px #000}
+.show img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s;filter:saturate(1.4) contrast(1.15) hue-rotate(-5deg)}.show img.on{opacity:1}.dots{position:absolute;z-index:3;bottom:52px;left:0;right:0;display:flex;justify-content:center;gap:7px}.dots i{width:7px;height:7px;transform:rotate(45deg);background:#fff5}.dots i.on{background:var(--orange);box-shadow:0 0 10px var(--orange)}
+.artists{display:flex;flex-direction:column;gap:18px;justify-content:center}.artist{background:linear-gradient(140deg,rgba(24,7,42,.92),rgba(8,3,17,.8));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #8d21ff55;border-radius:3px;padding:clamp(16px,2.4vw,25px);position:relative;box-shadow:inset 0 0 26px #8b19ff0d,0 0 25px #8b19ff12;overflow:hidden}.artist:before{content:"";position:absolute;top:0;left:0;width:72px;height:3px;background:var(--orange);box-shadow:0 0 14px var(--orange)}.artist:after{content:"✳";position:absolute;right:15px;top:12px;font-size:20px;color:#ff6a0066}
+.artist h2{margin:0 0 16px;font-family:"Silkscreen",monospace;font-size:clamp(17px,2.3vw,25px);text-transform:uppercase;letter-spacing:.03em}.artist:nth-child(1) h2{color:var(--orange);text-shadow:0 0 16px #ff6a0044}.artist:nth-child(2) h2{color:#fff;text-shadow:-2px 0 var(--blue),2px 0 var(--hot)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tile{display:flex;flex-direction:column;align-items:center;gap:10px;padding:clamp(12px,1.7vw,18px);border-radius:2px;background:linear-gradient(145deg,#ffffff0d,#ff2e9308);border:1px solid #ffffff20;color:var(--ink);text-decoration:none;transition:transform .22s,border-color .22s,background .22s,box-shadow .22s;min-width:0}.tile:hover{transform:translateY(-4px);border-color:var(--orange);background:#ff6a0010;box-shadow:0 0 22px #ff6a0025}.qr{background:#fff;padding:7px;border-radius:2px;line-height:0;box-shadow:0 0 0 1px #ff6a0044,0 0 18px #8d21ff20}.qr img,.qr canvas{width:clamp(88px,10vw,116px)!important;height:clamp(88px,10vw,116px)!important}.tile b{font-family:"Silkscreen",monospace;font-size:clamp(10px,1.25vw,13px);letter-spacing:.06em;text-transform:uppercase;color:var(--orange)}.tile span{color:var(--muted);font-size:12px;word-break:break-all;text-align:center}
+@media(max-width:860px){.wrap{gap:20px}header{text-align:center}main{grid-template-columns:1fr}.show{height:auto;width:min(88vw,520px);min-height:0;aspect-ratio:4/5;justify-self:center}.artists{width:min(100%,700px);margin:0 auto}}
+@media(max-width:460px){.tiles{gap:8px}.artist{padding:15px}.tile{padding:10px 6px}.qr img,.qr canvas{width:88px!important;height:88px!important}.sub{letter-spacing:.1em}}
+@media(prefers-reduced-motion:reduce){.bg i{animation:none}.tile{transition:none}}
 </style>
 </head>
 <body>
 <div class="bg"><i></i><i></i><i></i><i></i></div><div class="grain"></div>
 <div class="wrap">
   <header>
-    <h1><span class="b">Brinquedoteca</span><span class="p">+++</span><span class="a">Amnezia</span></h1>
-    <p class="sub">Siga e escute os sets</p>
+    <h1><span class="b">BRINCADEIRAS</span></h1>
+    <p class="sub">Das vozes da nossas cabeças · é demais pro seu sistema.</p>
   </header>
   <main>
     <div class="show" id="show"></div>
