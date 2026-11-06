@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brinquedoteca +++ Amnezia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--bg:#07040d;--text:#f6f1ff;--muted:#a99cc4;--orange:#ff6a00;--pink:#ff2e93;--violet:#7a2cff;--blue:#2d5bff;--glass:rgba(20,10,36,.55);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:var(--bg);color:var(--text);font-family:"Space Grotesk",system-ui,sans-serif;position:relative;overflow-x:hidden}
+/* fundo: manchas de neon + grão */
+.bg{position:fixed;inset:0;z-index:-2;overflow:hidden}
+.bg i{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(90px);opacity:.55;animation:drift 22s ease-in-out infinite alternate}
+.bg i:nth-child(1){background:var(--violet);left:-15vmax;top:-18vmax}
+.bg i:nth-child(2){background:var(--orange);right:-20vmax;bottom:-22vmax;opacity:.42;animation-delay:-8s}
+.bg i:nth-child(3){background:var(--pink);right:10vmax;top:-25vmax;opacity:.3;animation-delay:-14s}
+.bg i:nth-child(4){background:var(--blue);left:5vmax;bottom:-28vmax;opacity:.35;animation-delay:-4s}
+@keyframes drift{to{transform:translate(6vmax,4vmax) scale(1.12)}}
+.grain{position:fixed;inset:0;z-index:-1;opacity:.18;mix-blend-mode:overlay;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.wrap{max-width:1200px;margin:0 auto;padding:20px;min-height:100vh;display:flex;flex-direction:column;gap:18px}
+header{text-align:center}
+h1{margin:0;font-family:"Silkscreen",monospace;font-weight:700;font-size:clamp(22px,4.2vw,44px);letter-spacing:.02em;line-height:1.1;text-transform:uppercase}
+h1 .b{color:var(--orange);text-shadow:0 0 18px #ff6a0099,3px 3px 0 #3a0f00}
+h1 .p{color:var(--pink);margin:0 .3em}
+h1 .a{color:#fff;text-shadow:-2px 0 var(--blue),2px 0 var(--orange)}
+.sub{margin:8px 0 0;color:var(--muted);font-size:14px;letter-spacing:.2em;text-transform:uppercase}
+main{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:center}
+.show{position:relative;justify-self:center;height:min(68vh,640px);aspect-ratio:4/5;max-width:100%;border-radius:18px;overflow:hidden;border:1px solid #ffffff22;box-shadow:0 0 0 1px #000,0 20px 70px -10px #ff2e9355,0 0 120px -20px #7a2cff88;background:#000}
+.show img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s}
+.show img.on{opacity:1}
+.dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:#fff5}
+.dots i.on{background:var(--orange)}
+.artists{display:flex;flex-direction:column;gap:16px}
+.artist{background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #ffffff1c;border-radius:18px;padding:16px}
+.artist h2{margin:0 0 12px;font-family:"Silkscreen",monospace;font-size:22px;text-transform:uppercase;letter-spacing:.04em}
+.artist:nth-child(1) h2{color:var(--orange)}
+.artist:nth-child(2) h2{color:#fff;text-shadow:-2px 0 var(--blue),2px 0 var(--pink)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px;border-radius:14px;background:#ffffff0d;border:1px solid #ffffff14;color:var(--text);text-decoration:none;transition:transform .2s,border-color .2s,background .2s}
+.tile:hover{transform:translateY(-3px);border-color:var(--pink);background:#ffffff16}
+.qr{background:#fff;padding:7px;border-radius:10px;line-height:0}
+.qr img,.qr canvas{width:112px!important;height:112px!important}
+.tile b{font-family:"Silkscreen",monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.tile span{color:var(--muted);font-size:12px;word-break:break-all;text-align:center}
+@media(max-width:860px){main{grid-template-columns:1fr}.show{height:auto;width:min(86vw,420px)}}
+@media(max-width:420px){.tiles{gap:8px}.qr img,.qr canvas{width:96px!important;height:96px!important}}
+@media(prefers-reduced-motion:reduce){.bg i{animation:none}}
+</style>
+</head>
+<body>
+<div class="bg"><i></i><i></i><i></i><i></i></div><div class="grain"></div>
+<div class="wrap">
+  <header>
+    <h1><span class="b">Brinquedoteca</span><span class="p">+++</span><span class="a">Amnezia</span></h1>
+    <p class="sub">Siga e escute os sets</p>
+  </header>
+  <main>
+    <div class="show" id="show"></div>
+    <div class="artists" id="artists"></div>
+  </main>
+</div>
+<script>
+const FOTOS = ["fotos/1.jpg","fotos/2.jpg","fotos/3.jpg"];
+const ARTISTAS = [
+  { nome: "Brinquedoteca", links: [
+    { rede: "Instagram",  url: "https://www.instagram.com/brinquedoteca014/", handle: "@brinquedoteca014" },
+    { rede: "SoundCloud", url: "https://soundcloud.com/brinquedotecabr",     handle: "brinquedotecabr" } ] },
+  { nome: "Amnezia", links: [
+    { rede: "Instagram",  url: "https://www.instagram.com/amnezia.wav",      handle: "@amnezia.wav" },
+    { rede: "SoundCloud", url: "https://soundcloud.com/amneziawav",          handle: "amneziawav" } ] }
+];
+
+const show = document.getElementById("show"), dots = document.createElement("div");
+dots.className = "dots";
+FOTOS.forEach(src => { const im = new Image(); im.src = src; im.alt = "Brinquedoteca e Amnezia tocando"; show.appendChild(im); dots.appendChild(document.createElement("i")); });
+show.appendChild(dots);
+const imgs = show.querySelectorAll("img"); let cur = 0;
+const go = i => imgs.forEach((m,k) => { m.classList.toggle("on", k===i); dots.children[k].classList.toggle("on", k===i); });
+go(0); setInterval(() => { cur = (cur+1) % imgs.length; go(cur); }, 4500);
+
+const box = document.getElementById("artists");
+ARTISTAS.forEach(a => {
+  const s = document.createElement("section"); s.className = "artist";
+  s.innerHTML = `<h2>${a.nome}</h2><div class="tiles"></div>`;
+  const tiles = s.querySelector(".tiles");
+  a.links.forEach(l => {
+    const t = document.createElement("a"); t.className = "tile"; t.href = l.url; t.target = "_blank"; t.rel = "noopener";
+    t.innerHTML = `<div class="qr"></div><b>${l.rede}</b><span>${l.handle}</span>`;
+    tiles.appendChild(t);
+    new QRCode(t.querySelector(".qr"), { text: l.url, width: 112, height: 112, colorDark: "#14052b", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.M });
+  });
+  box.appendChild(s);
+});
+</script>
+</body>
+</html>
